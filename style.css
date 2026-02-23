@@ -1,1 +1,69 @@
-/* Add styles here */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f2f5;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.lotto-machine {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.lotto-numbers {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+.lotto-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.lucky-number {
+    background: #ff4081; /* Special color for the lucky number */
+}
+
+#generate-btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background: #ff4081;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4);
+}
+
+#generate-btn:hover {
+    background: #ff80ab;
+    box-shadow: 0 6px 20px rgba(255, 64, 129, 0.5);
+}

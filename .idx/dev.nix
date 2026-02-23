@@ -38,7 +38,7 @@
       # Runs when the workspace is (re)started
       onStart = {
         # Example: start a background task to watch and re-build backend code
-        # watch-backend = "npm run watch-backend";
+        watch-backend = "npx http-server -p 8080";
       };
     };
   };
