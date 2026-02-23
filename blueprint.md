@@ -33,3 +33,9 @@ This is a simple web application that generates random lottery numbers. It provi
 *   **Step 7: Enhanced Interactivity**
     *   Add "glow" effects to the generate button.
     *   Implement a staggered animation for the numbers as they appear.
+
+### Phase 3: Requested Features
+*   **Step 8: Change Bonus Number Label**
+    *   Updated the label for the last number from "보너스" to "행운번호".
+*   **Step 9: Deploy**
+    *   Create a new `deploy.tar.gz` archive containing the updated HTML, JS, and CSS files.

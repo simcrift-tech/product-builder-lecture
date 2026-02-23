@@ -1,33 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Number Generator</title>
-    <link rel="stylesheet" href="style.css?v=1.1">
+    <title>로또 번호 추천기</title>
+    <link rel="stylesheet" href="style.css?v=2.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-<body>
-    <button id="theme-toggle" class="theme-toggle">🌙 Dark Mode</button>
+<body data-theme="dark">
     <div class="container">
-        <h1>Lotto Number Generator</h1>
-        <div id="three-container"></div>
-        <lotto-machine>
-            <div class="lotto-machine">
-                <div class="lotto-numbers">
-                    <!-- Numbers will be generated here -->
-                </div>
-                <button id="generate-btn">Generate Numbers</button>
-            </div>
-        </lotto-machine>
+        <header class="app-header">
+            <h1><i class="fa-solid fa-dice"></i> 로또 번호 추천기 (5게임)</h1>
+            <p>버튼을 누르면 1~45 사이에서 중복 없이 6개 번호를 5게임 한 번에 뽑아줘요.</p>
+        </header>
+        
+        <div class="controls">
+            <button id="generate-btn">5게임 추천 받기</button>
+            <button id="copy-btn" style="display: none;">전체 복사</button>
+        </div>
+        
+        <div class="options">
+            <label for="bonus-checkbox">
+                <input type="checkbox" id="bonus-checkbox" checked>
+                행운번호도 포함
+            </label>
+        </div>
+
+        <main id="results-container">
+            <!-- Game results will be injected here -->
+        </main>
+
+        <footer id="footer-info" style="display: none;">
+            <p>추천 완료! (2026. 1. 10. 16시 19분 47초) / 총 5게임</p>
+        </footer>
     </div>
-    <script type="importmap">
-        {
-          "imports": {
-            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-          }
-        }
-    </script>
-    <script type="module" src="main.js?v=1.2"></script>
+    <script src="main.js?v=2.0"></script>
 </body>
 </html>

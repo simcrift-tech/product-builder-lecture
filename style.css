@@ -1,109 +1,176 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap');
 
 :root {
-    --bg-color: #f0f2f5;
-    --text-color: #333;
-    --card-bg: #fff;
-    --btn-bg: #ff4081;
-    --btn-hover: #ff80ab;
-    --btn-shadow: rgba(255, 64, 129, 0.4);
-    --btn-shadow-hover: rgba(255, 64, 129, 0.5);
-    --card-shadow: rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="dark"] {
-    --bg-color: #121212;
+    --bg-color: #1a1c2f;
+    --card-bg: #2a2d44;
     --text-color: #e0e0e0;
-    --card-bg: #1e1e1e;
-    --card-shadow: rgba(0, 0, 0, 0.5);
+    --subtext-color: #a0a3c4;
+    --primary-btn-bg: linear-gradient(90deg, #3a7cff, #6c5eff);
+    --secondary-btn-bg: #414561;
+    --font-family: 'Pretendard', sans-serif;
+
+    --color-yellow: #fbc400;
+    --color-blue: #69c8f2;
+    --color-red: #ff7272;
+    --color-gray: #aaa;
+    --color-green: #b0d840;
+    --color-purple: #ab82ff; /* Bonus color */
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-family);
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: var(--bg-color);
-    margin: 0;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: var(--bg-color);
     color: var(--text-color);
-    transition: background 0.3s, color 0.3s;
+    padding: 40px 20px;
+    margin: 0;
 }
 
 .container {
+    width: 100%;
+    max-width: 800px;
     text-align: center;
 }
 
-h1 {
-    font-size: 3rem;
-    color: var(--text-color);
-    margin-bottom: 2rem;
-}
-
-.theme-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: var(--card-bg);
-    color: var(--text-color);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px var(--card-shadow);
-    font-weight: bold;
-    transition: background 0.3s, color 0.3s;
-}
-
-.theme-toggle:hover {
-    opacity: 0.8;
-}
-
-.lotto-machine {
-    background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px var(--card-shadow);
-    transition: background 0.3s, box-shadow 0.3s;
-}
-
-.lotto-numbers {
+.app-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
     display: flex;
+    align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 2rem;
 }
 
-.lotto-number {
+.app-header p {
+    color: var(--subtext-color);
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+.controls {
     display: flex;
+    gap: 10px;
     justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
 }
 
-.lucky-number {
-    background: var(--btn-bg); /* Special color for the lucky number */
+.controls button {
+    font-family: var(--font-family);
+    padding: 18px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
 #generate-btn {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    background: var(--btn-bg);
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 15px var(--btn-shadow);
+    background: var(--primary-btn-bg);
+    color: white;
+    flex-grow: 1;
+    max-width: 400px;
 }
 
-#generate-btn:hover {
-    background: var(--btn-hover);
-    box-shadow: 0 6px 20px var(--btn-shadow-hover);
+#copy-btn {
+    background: var(--secondary-btn-bg);
+    color: var(--text-color);
+}
+
+.controls button:hover {
+    transform: scale(1.03);
+}
+
+.options {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.options label {
+    color: var(--subtext-color);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--secondary-btn-bg);
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    top: -2px;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #3a7cff;
+    border-color: #3a7cff;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '\2713';
+    font-size: 16px;
+    color: white;
+    position: absolute;
+    top: -2px;
+    left: 2px;
+}
+
+#results-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.game-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.game-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: var(--subtext-color);
+    font-weight: 700;
+}
+
+.game-numbers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.lotto-ball {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+}
+
+.plus-icon {
+    font-size: 1.5rem;
+    color: var(--subtext-color);
+    margin: 0 5px;
+}
+
+footer {
+    color: var(--subtext-color);
+    font-size: 0.9rem;
 }
