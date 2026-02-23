@@ -1,13 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+:root {
+    --bg-color: #f0f2f5;
+    --text-color: #333;
+    --card-bg: #fff;
+    --btn-bg: #ff4081;
+    --btn-hover: #ff80ab;
+    --btn-shadow: rgba(255, 64, 129, 0.4);
+    --btn-shadow-hover: rgba(255, 64, 129, 0.5);
+    --card-shadow: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --card-shadow: rgba(0, 0, 0, 0.5);
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #f0f2f5;
+    background: var(--bg-color);
     margin: 0;
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
 }
 
 .container {
@@ -16,15 +36,35 @@ body {
 
 h1 {
     font-size: 3rem;
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 2rem;
 }
 
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px var(--card-shadow);
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+}
+
+.theme-toggle:hover {
+    opacity: 0.8;
+}
+
 .lotto-machine {
-    background: #fff;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px var(--card-shadow);
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
 .lotto-numbers {
@@ -48,22 +88,22 @@ h1 {
 }
 
 .lucky-number {
-    background: #ff4081; /* Special color for the lucky number */
+    background: var(--btn-bg); /* Special color for the lucky number */
 }
 
 #generate-btn {
     padding: 1rem 2rem;
     font-size: 1.2rem;
-    background: #ff4081;
+    background: var(--btn-bg);
     color: #fff;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     transition: background 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4);
+    box-shadow: 0 4px 15px var(--btn-shadow);
 }
 
 #generate-btn:hover {
-    background: #ff80ab;
-    box-shadow: 0 6px 20px rgba(255, 64, 129, 0.5);
+    background: var(--btn-hover);
+    box-shadow: 0 6px 20px var(--btn-shadow-hover);
 }
